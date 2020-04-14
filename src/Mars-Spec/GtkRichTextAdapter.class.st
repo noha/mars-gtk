@@ -31,7 +31,7 @@ GtkRichTextAdapter >> applyStyleTo: gtkTextView [
 { #category : #building }
 GtkRichTextAdapter >> setText: text to: gtkWidget [
 	super 
-		setText: (self model textStyler plaintextFor: text) 
+		setText: self model plaintext 
 		to: gtkWidget 
 ]
 
