@@ -34,16 +34,15 @@ GtkTextStyleTagsVisitor >> tags [
 
 { #category : #'as yet unclassified' }
 GtkTextStyleTagsVisitor >> visitCompositeObject: aRenderObject [ 
-	| name offsetStart result |
-	"(aRenderObject item isKindOf: PRAnnotatedParagraph ) ifTrue: [ self halt. ]."
+	| name offsetStart |
 	name := styleProvider itemNameFor: aRenderObject item.
 	offsetStart := offset.
-	result := super visitCompositeObject: aRenderObject.
+	super visitCompositeObject: aRenderObject.
 	name ifNotNil: [ 
 		tags add: (GtkTextStyleTag 
 			newName: name 
 			from: offsetStart  
-			to: offset - 1).].
+			to: offset - 1) ].
 	offset := offset + aRenderObject extraOffset
 ]
 
